@@ -1,0 +1,34 @@
+POST:   {
+  "idEnvio": 1,
+  "estadoEnvio": "PENDIENTE",
+  "fechaEnvio": "2023-11-20 09:15:00",
+  "direccionDestino": "Av. Providencia 1234, Santiago",
+  "codigoSeguimiento": "ECO2023112001",
+  "idPedido": 42
+}
+
+{
+  "idEnvio": 2,
+  "estadoEnvio": "EN_CAMINO",
+  "fechaEnvio": "2023-11-20 10:30:00",
+  "direccionDestino": "Calle Los Alerces 567, Valdivia",
+  "codigoSeguimiento": "ECO2023112002",
+  "idPedido": 57
+}
+
+{
+  "idEnvio": 3,
+  "estadoEnvio": "ENTREGADO",
+  "fechaEnvio": "2023-11-19 14:00:00",
+  "direccionDestino": "Pasaje Los Olivos 89, Antofagasta",
+  "codigoSeguimiento": "ECO2023111901",
+  "idPedido": 35
+}
+
+
+GET: 
+
+
+PUT: ?estado=ENTREGADO
+    ?estado=EN_CAMINO
+    ?estado=PENDIENTE
