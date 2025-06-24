@@ -33,7 +33,7 @@ public class G_Envio {
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "America/Santiago")
     private LocalDateTime fechaEnvio;
-
+    
     
     private String direccionDestino;
     private String codigoSeguimiento;

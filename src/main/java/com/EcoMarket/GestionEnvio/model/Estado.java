@@ -3,5 +3,6 @@ package com.EcoMarket.GestionEnvio.model;
 public enum Estado {
     PENDIENTE,
     EN_CAMINO,
-    ENTREGADO
+    ENTREGADO,
+    CANCELADO
 }

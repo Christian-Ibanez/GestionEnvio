@@ -52,17 +52,13 @@ public class G_EnvioController {
     public ResponseEntity<G_Envio> actualizarEstadoEnvio(
             @PathVariable int id,
             @RequestParam Estado estado) {
-        G_Envio envioActualizado = envioService.actualizarEstadoEnvio(id, estado); //Pendiente, En Camino, Entregado
+        G_Envio envioActualizado = envioService.actualizarEstadoEnvio(id, estado); //Pendiente, En Camino, 
+                                                                                    //Entregado, Cancelado
         if (envioActualizado != null) {
             return ResponseEntity.ok(envioActualizado);
         }
         return ResponseEntity.notFound().build();
     }
 
-    // Eliminar envío
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarEnvio(@PathVariable int id) {
-        envioService.eliminarEnvio(id);
-        return ResponseEntity.noContent().build();
-    }
+
 }

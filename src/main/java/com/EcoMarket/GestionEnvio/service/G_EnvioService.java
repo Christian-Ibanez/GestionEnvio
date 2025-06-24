@@ -13,6 +13,7 @@ import com.EcoMarket.GestionEnvio.repository.G_EnvioRepository;
 
 @Service
 public class G_EnvioService  {
+    
     @Autowired
     private G_EnvioRepository envioRepository;
 
@@ -44,8 +45,5 @@ public class G_EnvioService  {
         return null;
     }
 
-    // Eliminar envío
-    public void eliminarEnvio(int id) {
-        envioRepository.deleteById(id);
-    }
+    
 }
