@@ -31,19 +31,31 @@ public class G_EnvioService  {
 
     // Obtener envío por ID
     public Optional<G_Envio> obtenerEnvioId(int id) {
-        return envioRepository.findById(id);
+    if (id <= 0) {
+        // Opción 1: ID inválido
+        return Optional.empty();
     }
+    Optional<G_Envio> envioOptional = envioRepository.findById(id);
+    if (envioOptional.isPresent()) {
+        // Opción 2: Envío encontrado
+        return envioOptional;
+    } else {
+        // Opción 2: Envío no encontrado
+        return Optional.empty();
+    }
+}
 
     // Actualizar estado de envío
     public G_Envio actualizarEstadoEnvio(int id, Estado nuevoEstado) {
-        Optional<G_Envio> envioOptional = envioRepository.findById(id);
-        if (envioOptional.isPresent()) {
-            G_Envio envio = envioOptional.get();
-            envio.setEstadoEnvio(nuevoEstado);
-            return envioRepository.save(envio);
-        }
-        return null;
+    Optional<G_Envio> envioOptional = envioRepository.findById(id);
+    
+    if (envioOptional.isPresent()) {
+        G_Envio envio = envioOptional.get();
+        envio.setEstadoEnvio(nuevoEstado);
+        return envioRepository.save(envio);
     }
+    return null;  
+}
 
     
 }

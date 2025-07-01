@@ -104,8 +104,14 @@ public class G_EnvioServiceTest {
         G_Envio resultado = G_EnvioService.actualizarEstadoEnvio(1, Estado.ENTREGADO);
         assert resultado != null;
         assert resultado.getEstadoEnvio() == Estado.ENTREGADO;
-        
+        verify(G_EnvioRepository).save(actualizarEstadoEnvioTest);
+    }
+
+    @Test
+    void testActualizarEstadoEnvio2() {
+
         //Actualizar el estado envio 2
+
         G_Envio actualizarEstadoEnvioTest2 = new G_Envio();
         actualizarEstadoEnvioTest2.setIdEnvio(1);
         actualizarEstadoEnvioTest2.setEstadoEnvio(Estado.EN_CAMINO);
@@ -115,6 +121,12 @@ public class G_EnvioServiceTest {
 
         G_Envio resultado2 = G_EnvioService.actualizarEstadoEnvio(1, Estado.EN_CAMINO);
         assert resultado2.getEstadoEnvio() == Estado.EN_CAMINO;
+
+        verify(G_EnvioRepository).save(actualizarEstadoEnvioTest2);
+    }
+
+    @Test
+    void testActualizarEstadoEnvio3() {
 
         //Actualizar el estado envio 3
 
@@ -128,7 +140,7 @@ public class G_EnvioServiceTest {
         
         assert resultado3.getEstadoEnvio() == Estado.CANCELADO;
         
-        verify(G_EnvioRepository).save(actualizarEstadoEnvioTest);
+        verify(G_EnvioRepository).save(actualizarEstadoEnvioTest3);
     }
 
    

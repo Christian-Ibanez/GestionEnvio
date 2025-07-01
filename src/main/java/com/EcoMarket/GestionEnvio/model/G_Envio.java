@@ -2,15 +2,11 @@ package com.EcoMarket.GestionEnvio.model;
 
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.*;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,13 +25,21 @@ public class G_Envio {
     private int idEnvio;
 
     @Enumerated(EnumType.STRING)
+    
     private Estado estadoEnvio;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "America/Santiago")
     private LocalDateTime fechaEnvio;
     
     
+    
+    
     private String direccionDestino;
+
+    
+    @Column(nullable = false, unique = true) // Código único en la base de datos
     private String codigoSeguimiento;
+
+    @Min(value = 1, message = "El ID del pedido debe ser mayor que 0")
     private int idPedido; 
 }
